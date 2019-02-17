@@ -1,5 +1,6 @@
 import numpy as np
 import os
+import pandas as pd
 from keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array
 img = load_img('D:\JAFFED\jaffe\KA.AN1.39.tiff')
 x = img_to_array(img)
@@ -46,4 +47,12 @@ x = data(files)
 
 print(len(x))
 print(x[0].shape)
+print(y[0])
+
+import pickle
+with open('./xy.pkl', 'wb') as f:
+    pickle.dump((x, y), f)
+
+x, y = pd.read_pickle('./xy.pkl')
+
 print(y[0])
